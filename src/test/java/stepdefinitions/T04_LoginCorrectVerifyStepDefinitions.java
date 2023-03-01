@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class LoginCorrectVerifyStepDefinitions {
+public class T04_LoginCorrectVerifyStepDefinitions {
     LoginPage loginPage=new LoginPage();
 
 

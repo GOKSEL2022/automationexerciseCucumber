@@ -5,7 +5,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.LoginPage;
 
-public class LoginİncorrectStepDefinitions {
+public class T03_LoginİncorrectStepDefinitions {
     LoginPage loginPage=new LoginPage();
 
     @When("Enter incorrect email address {string}")

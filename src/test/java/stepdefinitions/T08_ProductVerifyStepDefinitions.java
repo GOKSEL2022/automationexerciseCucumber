@@ -8,7 +8,7 @@ import pages.AllProductsPage;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class ProductVerifyStepDefinitions {
+public class T08_ProductVerifyStepDefinitions {
     LoginPage loginPage=new LoginPage();
     AllProductsPage allProductsPage=new AllProductsPage();
 

@@ -13,6 +13,13 @@ public class AllProductsPage {
     @FindBy(xpath = "//*[@class='title text-center']") public WebElement textAllProduct;
     @FindBy(xpath = "(//*[.='View Product'])[1]") public WebElement viewFirstProduct;
     @FindBy(xpath = "//*[.='Condition:']") public WebElement textDetailCondition;
+    @FindBy(xpath = "//*[@id='search_product']") public WebElement boxSearchProduct;
+
+    @FindBy(xpath = "//*[@id='submit_search']") public WebElement buttonSubmitSearchProduct;
+
+    @FindBy(xpath = "//*[.='Searched Products']") public WebElement textSearchedProducts;
+    @FindBy(xpath = "//*[@class='features_items']") public WebElement verifyAllProducts;
+
 
 
 }

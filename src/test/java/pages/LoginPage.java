@@ -30,6 +30,10 @@ public class LoginPage {
         @FindBy(xpath = "//b[.='Test Cases']") public WebElement textLoginTestCase;
         @FindBy(xpath = "//*[@class='material-icons card_travel']") public WebElement buttonProducts;
 
+        @FindBy(xpath = "//*[.='Subscription']") public WebElement textSubscription;
+        @FindBy(xpath = "//*[@id='susbscribe_email']") public WebElement boxSubscriptionEmail;
+        @FindBy(xpath = "//*[@class='fa fa-arrow-circle-o-right']") public WebElement buttonSubscriptionEmail;
+        @FindBy(xpath = "//*[@class='alert-success alert']") public WebElement textAlertSuccesSubscription;
     }
 
 

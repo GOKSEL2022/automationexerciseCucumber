@@ -6,7 +6,7 @@ import pages.AccountCreatedPage;
 import pages.LoginPage;
 import pages.SignupPage;
 
-public class LoginCorrectStepDefinitions {
+public class T02_LoginCorrectStepDefinitions {
     LoginPage loginPage=new LoginPage();
     AccountCreatedPage accountCreatedPage=new AccountCreatedPage();
     SignupPage signupPage=new SignupPage();

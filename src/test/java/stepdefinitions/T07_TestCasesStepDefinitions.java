@@ -3,11 +3,10 @@ package stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.devtools.v108.input.model.DragDataItem;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class TestCasesStepDefinitions {
+public class T07_TestCasesStepDefinitions {
 
     LoginPage loginPage=new LoginPage();
 

@@ -5,14 +5,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 import pages.AccountCreatedPage;
 import pages.LoginPage;
 import pages.SignupPage;
 import utilities.Driver;
 
-public class RegisterStepDefinitions {
+public class T01_RegisterStepDefinitions {
     LoginPage loginPage=new LoginPage();
     SignupPage signupPage=new SignupPage();
     AccountCreatedPage accountCreatedPage=new AccountCreatedPage();

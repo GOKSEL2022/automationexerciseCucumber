@@ -6,7 +6,7 @@ import org.junit.Assert;
 import pages.LoginPage;
 
 
-public class RegisterExistingEmailStepDefinition {
+public class T05_RegisterExistingEmailStepDefinition {
     LoginPage loginPage=new LoginPage();
     @And("already registered email address {string}")
     public void alreadyRegisteredEmailAddress(String string) {
