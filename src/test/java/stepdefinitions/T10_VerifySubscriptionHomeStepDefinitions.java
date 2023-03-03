@@ -7,7 +7,7 @@ import org.junit.Assert;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class T10_VerifySubscriptionStepDefinitions {
+public class T10_VerifySubscriptionHomeStepDefinitions {
     LoginPage loginPage=new LoginPage();
     @And("Scroll down to footer")
     public void scrollDownToFooter() {

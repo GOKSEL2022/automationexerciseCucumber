@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "./src/test/resources/features",//features folder path
         glue = "stepdefinitions",   //stepdefinitions path
      //  tags ="@manager_bilgileri",   //"@personel_olusturma and
-        tags = "@Subscrıptıon",
+        tags = "@while_Checkout",
         dryRun = false
 
 )

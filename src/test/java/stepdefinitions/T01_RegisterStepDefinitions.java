@@ -34,6 +34,7 @@ public class T01_RegisterStepDefinitions {
     @When("Verify New User Signup! is visible")
     public void verify_new_user_signup_is_visible() {
         Assert.assertTrue(loginPage.textNewUserSignup.isDisplayed());
+        Driver.wait(3);
 
     }
     @When("Enter name {string}")
@@ -163,8 +164,7 @@ public class T01_RegisterStepDefinitions {
     }
     @When("Click Continue button")
     public void click_continue_button() {
-        accountCreatedPage.buttonAccountContinue.click();
-        Driver.getDriver().navigate().refresh();
+        Driver.wait(2);
         accountCreatedPage.buttonAccountContinue.click();
 
     }

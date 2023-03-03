@@ -10,8 +10,6 @@ public class SignupPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath = "(//*[.='Enter Account Information'])[2]") public WebElement textEnterAccountInformation;
-
-    @FindBy(xpath = "(//*[@class='title text-center'])[1]") public WebElement hesapBilgileri;
     @FindBy(xpath = "//*[@id='id_gender1']") public WebElement radioMr;
     @FindBy(xpath = "//*[@id='name']") public WebElement signupName;
     @FindBy(xpath = "//*[@id='password']") public WebElement signupPassword;

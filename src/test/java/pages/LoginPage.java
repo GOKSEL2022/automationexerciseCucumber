@@ -34,6 +34,13 @@ public class LoginPage {
         @FindBy(xpath = "//*[@id='susbscribe_email']") public WebElement boxSubscriptionEmail;
         @FindBy(xpath = "//*[@class='fa fa-arrow-circle-o-right']") public WebElement buttonSubscriptionEmail;
         @FindBy(xpath = "//*[@class='alert-success alert']") public WebElement textAlertSuccesSubscription;
+        @FindBy(xpath = "(//i[@class='fa fa-shopping-cart'])[1]") public  WebElement buttonCart;
+        @FindBy(id = "susbscribe_email") public WebElement boxEmailCart;
+        @FindBy(xpath = "(//i[@class='fa fa-plus-square'])[1]") public WebElement buttonViewProduct;
+        @FindBy(xpath = "//*[.='Proceed To Checkout']") public WebElement buttonProceedToCheckout;
+        @FindBy(xpath = "//u[text()='Register / Login']") public WebElement buttonRegisterLogin;
+        @FindBy(xpath = "//*[@href='/delete_account']")public WebElement buttonDeleteAccount;
+
     }
 
 

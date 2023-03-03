@@ -20,6 +20,7 @@ public class Driver {
     //create a driver instance
     private static WebDriver driver;
     private static int timeout = 5;
+
     //What?=>It is just to create, initialize the driver instance.(Singleton driver)
     //Why?=>We don't want to create and initialize the driver when we don't need
     //We will create and initialize the driver when it is null
@@ -27,6 +28,7 @@ public class Driver {
     private Driver() {
         //we don't want to create another abject. Singleton pattern
     }
+
     //to initialize the driver we create a static method
     public static WebDriver getDriver() {
         //create the driver if and only if it is null
@@ -53,6 +55,7 @@ public class Driver {
         driver.manage().window().maximize();
         return driver;
     }
+
     public static void closeDriver() {
         if (driver != null) {//if the driver is pointing chrome
             driver.quit();//quit the driver
@@ -62,6 +65,7 @@ public class Driver {
             // multiple browser like chrome, firefox, ie etc.)
         }
     }
+
     public static void waitAndClick(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -72,6 +76,7 @@ public class Driver {
             }
         }
     }
+
     public static void waitAndClick(WebElement element) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -82,6 +87,7 @@ public class Driver {
             }
         }
     }
+
     public static void waitAndSendText(WebElement element, String text, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -92,6 +98,7 @@ public class Driver {
             }
         }
     }
+
     //    Driver.waitANdSendText(Element , "TEXT");
     public static void waitAndSendText(WebElement element, String text) {
         for (int i = 0; i < timeout; i++) {
@@ -103,6 +110,7 @@ public class Driver {
             }
         }
     }
+
     public static void waitAndSendTextWithDefaultTime(WebElement element, String text) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -113,6 +121,7 @@ public class Driver {
             }
         }
     }
+
     public static String waitAndGetText(WebElement element, int timeout) {
         String text = "";
         for (int i = 0; i < timeout; i++) {
@@ -125,6 +134,7 @@ public class Driver {
         }
         return null;
     }
+
     //Webdriver
     //ChromeDriver
     //Iedriver
@@ -144,6 +154,7 @@ public class Driver {
             e.printStackTrace();
         }
     }
+
     //5 seconds
     public static void waitAndClickElement(WebElement element, int seconds) {
         for (int i = 0; i < seconds; i++) {
@@ -155,6 +166,7 @@ public class Driver {
             }
         }
     }
+
     public static void wait(int secs) {
         try {
             Thread.sleep(1000 * secs);
@@ -170,26 +182,32 @@ public class Driver {
             e.printStackTrace();
         }
     }
+
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public static Boolean waitForInVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
+
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     public static void waitForPageToLoad(long timeOutInSeconds) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -203,10 +221,12 @@ public class Driver {
             error.printStackTrace();
         }
     }
+
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command, element);
     }
+
     public static void selectAnItemFromDropdown(WebElement item, String selectableItem) {
         wait(5);
         Select select = new Select(item);
@@ -217,6 +237,7 @@ public class Driver {
             }
         }
     }
+
     /**
      * Clicks on an element using JavaScript
      *
@@ -226,6 +247,7 @@ public class Driver {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
+
     /**
      * Clicks on an element using JavaScript
      *
@@ -237,6 +259,7 @@ public class Driver {
             ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", each);
         }
     }
+
     /**
      * Performs double click action on an element
      *
@@ -245,6 +268,7 @@ public class Driver {
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
+
     //    Parameter1 : WebElement
 //    Parameter2:  String
 //    Driver.selectByVisibleText(dropdown element, "CHECKING-91303-116.98$")
@@ -252,6 +276,7 @@ public class Driver {
         Select objSelect = new Select(element);
         objSelect.selectByVisibleText(text);
     }
+
     //    Parameter1 : WebElement
 //    Parameter2:  int
 //    Driver.selectByIndex(dropdown element, 1)
@@ -259,6 +284,7 @@ public class Driver {
         Select objSelect = new Select(element);
         objSelect.selectByIndex(index);
     }
+
     //    Parameter1 : WebElement
 //    Parameter2:  String
 //    Driver.selectByIndex(dropdown element, "91303")
@@ -268,6 +294,7 @@ public class Driver {
         objSelect.selectByValue(value);
         System.out.println("number of elements: " + elementCount.size());
     }
+
     public static void sleep(int timeOut) {
         try {
             Thread.sleep(timeOut);
@@ -275,11 +302,27 @@ public class Driver {
             e.printStackTrace();
         }
     }
+
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
+
     public static void scrollEndJS() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
+
+    public static void hoverOverOnElementActions(WebElement element) {
+        Actions actions = new Actions(driver);
+        new Actions(driver).moveToElement(element).perform();
+    }
+    public static void scrollTopJS(WebElement bilingaddButonu) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight");
+    }
+    public static void scrollIntoViewJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
 }
