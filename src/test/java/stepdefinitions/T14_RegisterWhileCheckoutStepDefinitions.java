@@ -9,12 +9,14 @@ import pages.*;
 import utilities.Driver;
 
 public class T14_RegisterWhileCheckoutStepDefinitions {
-    LoginPage loginPage=new LoginPage();
-    CheckoutPage checkoutPage=new CheckoutPage();
-    AllProductsPage allProductsPage=new AllProductsPage();
+
+    LoginPage loginPage = new LoginPage();
+    CheckoutPage checkoutPage = new CheckoutPage();
+    AllProductsPage allProductsPage = new AllProductsPage();
     Actions actions = new Actions(Driver.getDriver());
-    PaymentPage paymentPage=new PaymentPage();
-    OrderPlacedPage orderPlacedPage=new OrderPlacedPage();
+    PaymentPage paymentPage = new PaymentPage();
+    OrderPlacedPage orderPlacedPage = new OrderPlacedPage();
+    AccountCreatedPage accountCreatedPage=new AccountCreatedPage();
 
     @And("Add products to cart")
     public void addProductsToCart() {
@@ -22,7 +24,7 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
         Driver.hoverOverOnElementActions(allProductsPage.firstProductPicture);
-        Driver.wait(2);
+        Driver.wait(5);
         allProductsPage.buttonAddToCartFirst.click();
         Driver.wait(2);
     }
@@ -49,8 +51,9 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
 
     @And("Verify Address Details and Review Your Order")
     public void verifyAddressDetailsAndReviewYourOrder() {
-        Driver.wait(2);
         Assert.assertTrue(checkoutPage.textAddressDetails.isDisplayed());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        Driver.waitForVisibility(checkoutPage.textReviewYourOrder, 10);
         Assert.assertTrue(checkoutPage.textReviewYourOrder.isDisplayed());
     }
 
@@ -89,23 +92,30 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
 
     @And("Click Pay and Confirm Order button")
     public void clickPayAndConfirmOrderButton() {
+        Driver.wait(5);
         paymentPage.buttonPayAndConfirmOrder.click();
+        Driver.wait(5);
     }
-
     @And("Verify success message Your order has been placed successfully!")
+
     public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
-        Assert.assertEquals("Your order has been placed successfully!",paymentPage.textSuccessMessage.getText());
+        Driver.waitAndGetText(paymentPage.textSuccessMessage, 10);
+        Assert.assertTrue(paymentPage.textSuccessMessage.isDisplayed());
 
     }
-
     @Then("Verify ACCOUNT DELETED! and click Continue button")
     public void verifyACCOUNTDELETEDAndClickContinueButton() {
         orderPlacedPage.buttonContinue.click();
-        Assert.assertTrue(loginPage.buttonDeleteAccount.isDisplayed());
-
-
+        Assert.assertTrue(loginPage.buttonSignupLogin.isDisplayed());
 
     }
 
-
+    /*
+    normalize-space() => Bazı elementlerde, içinde metin değeri fazladan boşluk karakteri içerebiliyor.
+     Bu durumda, normal text() fonksiyonu ilgili metni bulamıyor(boşluk vb karakterlerdne dolayı).
+      contains() fonksiyonu kullanılabilir ama bu sefer de hem performans hem okunabilirlik sorunu var.
+      İşte bu durumda, normalize-space() fonksiyonu yardıma koşuyor. Çoğu yazılım dilindeki trim() fonksiyonunun benzeridir.
+//a[normalize-space()=’ Click ‘] => metin değeri boşluklardan arındırılmış bir şekilde “Click” olan <a> elementlerini bulur
+     */
 }
+

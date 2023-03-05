@@ -17,9 +17,11 @@ public class CheckoutPage {
     @FindBy(xpath = "//*[.='Proceed To Checkout']") public WebElement buttonProceedToCheckout;
     @FindBy(xpath = "//u[text()='Register / Login']") public WebElement buttonRegisterLogin;
     @FindBy(xpath = "//*[.='Address Details']") public WebElement textAddressDetails;
-    @FindBy(xpath = "//*[.='//*[.='Review Your Order']']") public WebElement textReviewYourOrder;
+    @FindBy(xpath = "//*[.='Review Your Order']") public WebElement textReviewYourOrder;
     @FindBy(xpath = "//textarea[@name='message']") public WebElement boxMessage;
     @FindBy(xpath = "//*[.='Place Order']") public WebElement buttonPlaceOrder;
+    @FindBy(xpath = "//i[@class='fa fa-times']") public WebElement buttonXDelete;
+    @FindBy(xpath = "//*[@id='cart_info']") public WebElement textCartisEmpty;
 
 
 }
