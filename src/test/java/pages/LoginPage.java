@@ -41,6 +41,12 @@ public class LoginPage {
         @FindBy(xpath = "//u[text()='Register / Login']") public WebElement buttonRegisterLogin;
         @FindBy(xpath = "//a[normalize-space()='Delete Account']")public WebElement buttonDeleteAccount;
 
+
+        //18
+        @FindBy(xpath = "//h2[.='Category']") public WebElement textLoginCategory;
+        @FindBy(xpath = "//a[@href='#Women']") public WebElement buttonLoginWomen;
+        @FindBy(xpath = "//a[@href='/category_products/1']") public WebElement buttonLoginWomenDress;
+
     }
 
 
