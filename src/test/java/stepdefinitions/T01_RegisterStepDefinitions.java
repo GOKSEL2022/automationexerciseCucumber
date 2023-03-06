@@ -173,6 +173,7 @@ public class T01_RegisterStepDefinitions {
         Driver.wait(2);
         accountCreatedPage.buttonAccountContinue.click();
         Driver.getDriver().navigate().refresh();
+        Driver.wait(2);
         accountCreatedPage.buttonAccountContinue.click();
 
     }

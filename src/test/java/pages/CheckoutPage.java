@@ -26,6 +26,7 @@ public class CheckoutPage {
     @FindBy(id = "cart_info_table") public WebElement textProductisDisplayed;
     @FindBy(xpath = "//*[@id='address_delivery']") public WebElement textAdressDelivery;
     @FindBy(xpath = "//*[@id='address_invoice']") public WebElement textAdressİnvoice;
+    @FindBy(xpath = "//a[@href='/delete_account']") public WebElement buttonDeleteAccountCheckout;
 
 
 }

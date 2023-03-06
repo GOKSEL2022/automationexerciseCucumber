@@ -41,4 +41,4 @@ Feature:VerifyAddressDetailsİnCheckoutPage
   And Verify that the delivery address is same address filled at the time registration of account
   And Verify that the billing address is same address filled at the time registration of account
   And Click Delete Account button
-  Then Verify ACCOUNT DELETED! and click Continue button
+  Then Verify ACCOUNT DELETED! and click is Continue button

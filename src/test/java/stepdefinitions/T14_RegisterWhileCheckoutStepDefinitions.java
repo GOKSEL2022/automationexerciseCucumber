@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.*;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class T14_RegisterWhileCheckoutStepDefinitions {
 
@@ -105,7 +106,9 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
     }
     @Then("Verify ACCOUNT DELETED! and click Continue button")
     public void verifyACCOUNTDELETEDAndClickContinueButton() {
-        orderPlacedPage.buttonContinue.click();
+        Driver.clickWithJS(orderPlacedPage.buttonContinue);
+        Driver.wait(2);
+       // orderPlacedPage.buttonContinue.click();
         Assert.assertTrue(loginPage.buttonSignupLogin.isDisplayed());
 
     }
