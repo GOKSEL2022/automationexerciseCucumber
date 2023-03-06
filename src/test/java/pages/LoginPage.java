@@ -47,6 +47,11 @@ public class LoginPage {
         @FindBy(xpath = "//a[@href='#Women']") public WebElement buttonLoginWomen;
         @FindBy(xpath = "//a[@href='/category_products/1']") public WebElement buttonLoginWomenDress;
 
+        //22
+        @FindBy(xpath = "//h2[contains(text(),'recommended items')]") public WebElement textRecommendedİtemsLogin;
+        @FindBy(xpath = "(//a[@data-product-id='5'])[3]") public WebElement buttonRecommennedAddToCartLogin;
+        @FindBy(xpath = "(//a[@href='/view_cart'])[2]") public WebElement buttonRecommennedViewCartLogin;
+
     }
 
 

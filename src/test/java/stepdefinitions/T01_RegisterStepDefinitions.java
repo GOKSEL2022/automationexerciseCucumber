@@ -47,8 +47,8 @@ public class T01_RegisterStepDefinitions {
     }
     @When("Enter email address {string}")
     public void enter_email_address(String string) {
-     //   loginPage.boxRegisterEmail.sendKeys(faker.internet().emailAddress());
-        loginPage.boxRegisterEmail.sendKeys(string);
+       loginPage.boxRegisterEmail.sendKeys(faker.internet().emailAddress());
+       // loginPage.boxRegisterEmail.sendKeys(string);
 
     }
     @When("Click Signup button")
