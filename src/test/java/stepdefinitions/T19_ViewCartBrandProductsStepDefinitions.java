@@ -16,7 +16,7 @@ import utilities.Driver;
   Ardından Kullanıcının o sayfaya gittiğini doğrulayın marka sayfası ve ürünleri görebilir
  */
 
-public class T19_ViewCartBrandProducts {
+public class T19_ViewCartBrandProductsStepDefinitions {
     AllProductsPage allProductsPage=new AllProductsPage();
     Actions actions=new Actions(Driver.getDriver());
     @And("Verify that Brands are visible on left side bar")

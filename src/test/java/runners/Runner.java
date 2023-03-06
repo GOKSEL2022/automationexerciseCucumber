@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 
         features = "./src/test/resources/features",//features folder path
         glue = "stepdefinitions",   //stepdefinitions path
-     //  tags ="@manager_bilgileri",   //"@personel_olusturma and
-        tags = "@ViewCartBrandProducts",     //sendKeys(Keys.F5);==> sayfayı refresh eden kısayol
+        tags ="@AddReviewOnProduct",   //"@personel_olusturma and
+        //tags = "@ViewCartBrandProducts",     //sendKeys(Keys.F5);==> sayfayı refresh eden kısayol
         dryRun = false
 
 )

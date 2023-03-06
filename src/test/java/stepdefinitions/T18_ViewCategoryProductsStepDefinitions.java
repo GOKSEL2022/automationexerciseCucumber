@@ -9,7 +9,7 @@ import pages.AllProductsPage;
 import pages.LoginPage;
 import utilities.Driver;
 
-public class T18_ViewCategoryProducts {
+public class T18_ViewCategoryProductsStepDefinitions {
     LoginPage loginPage=new LoginPage();
     AllProductsPage allProductsPage=new AllProductsPage();
     Actions actions=new Actions(Driver.getDriver());

@@ -7,7 +7,7 @@ Feature:autometion_exercise
     And   Click on Signup_Login button
     And   Verify New User Signup! is visible
     And   Enter name "ferhat7"
-    And   Enter email address "ferhat11020@gmail.com"
+    And   Enter email address "ferhat01@gmail.com"
     And   Click Signup button
     And   Verify that ENTER ACCOUNT INFORMATION is visible
     And   Enter Title select

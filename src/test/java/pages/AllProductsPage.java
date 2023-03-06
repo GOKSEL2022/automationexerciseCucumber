@@ -39,5 +39,20 @@ public class AllProductsPage {
     @FindBy(xpath = "//a[@href='/brand_products/H&M']") public WebElement buttonBrandProductsHM;
     @FindBy(xpath = "//h2[@class='title text-center']") public WebElement textBrandHMProducts;
 
+    //20
+    @FindBy(xpath = "(//a[@data-product-id='30'])[1]") public WebElement buttonAddToCartProduct;
+    @FindBy(xpath = "(//a[@href='/view_cart'])[2]") public WebElement buttonViewCartProduct;
+    @FindBy(xpath = "(//a[@href='/view_cart'])[1]") public WebElement buttonCartProduct;
+    @FindBy(xpath = "//a[@href='/product_details/30']") public WebElement textPremiumPoloTShirtsProduct;
+
+    //21
+    @FindBy(xpath = "//a[@href='#reviews']") public WebElement textWriteYourReviewProduct;
+    @FindBy(id = "name") public  WebElement boxYourNameProduct;
+    @FindBy(id = "email") public  WebElement boxEmailAddressProduct;
+    @FindBy(id = "review") public  WebElement boxAddReviewHereProduct;
+    @FindBy(id = "button-review") public  WebElement buttonSubmitReviewProduct;
+    @FindBy(xpath = "//span[text()='Thank you for your review.']") public WebElement textThankYouForYourReviewProduct;
+
+
 
 }
