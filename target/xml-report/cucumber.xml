@@ -1,45 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="60.143" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="VerifyAddressDetailsİnCheckoutPage" name="VerifyAddressDetailsİnCheckoutPage" time="59.637">
+<testsuite name="Cucumber" time="20.068" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Verify Scroll Up" name="Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality" time="19.275">
+<failure type="java.lang.AssertionError">
+<![CDATA[java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepdefinitions.T25_ScrollDownfunctionalityStepDefinitions.verifyThatPageIsScrolledUpAndFullFledgedPracticeWebsiteForAutomationEngineersTextIsVisibleOnScreen(T25_ScrollDownfunctionalityStepDefinitions.java:25)
+	at ✽.Verify that page is scrolled up and Full-Fledged practice website for Automation Engineers text is visible on screen(file:///C:/Users/Public/com.automationexerciseCucumber/./src/test/resources/features/test_case26.feature:9)
+]]>
+</failure>
 <system-out><![CDATA[
-Given Navigate to url 'http://automationexercise.com'.......................passed
+Given Navigate to url "http://automationexercise.com".......................passed
 And Verify that home page is visible successfully...........................passed
-And Click on Signup_Login button............................................passed
-And Enter name "goksl5255"..................................................passed
-And Enter email address "goksel15@celik.com"................................passed
-And Click Signup button.....................................................passed
-And Verify that ENTER ACCOUNT INFORMATION is visible........................passed
-And Enter Title select......................................................passed
-And Enter Register name "ferhat"............................................passed
-And Enter password "123456".................................................passed
-And Enter day of birth "5"..................................................passed
-And Enter month of birth "April"............................................passed
-And Enter year of birth "1985"..............................................passed
-And Select checkbox Sign up for our newsletter!.............................passed
-And Select checkbox Receive special offers from our partners!...............passed
-And Enter firstname "ferhat"................................................passed
-And Enter lastname  "bay"...................................................passed
-And Enter company "tech"....................................................passed
-And Enter adressOne "carsamba"..............................................passed
-And Enter adressTwo "camas".................................................passed
-And Enter country "Canada"..................................................passed
-And Enter state "akkus".....................................................passed
-And Enter city "ordu".......................................................passed
-And Enter zipcode "52300"...................................................passed
-And Enter mobile number "05017202125".......................................passed
-And Click Create Account button.............................................passed
-And Verify that ACCOUNT CREATED! is visible.................................passed
-And Click Continue button...................................................passed
-And Verify that Logged in as username is visible............................passed
-And Add products to cart....................................................passed
-And Click View Cart button..................................................passed
-And Click Cart button.......................................................passed
-And Verify that cart page is displayed......................................passed
-And Click Proceed To Checkout...............................................passed
-And Verify that the delivery address is same address filled at the time registration of account.passed
-And Verify that the billing address is same address filled at the time registration of account.passed
-And Click Delete Account button.............................................passed
-Then Verify ACCOUNT DELETED! and click is Continue button...................passed
+And Scroll down page to bottom..............................................passed
+And Verify text SUBSCRIPTION................................................passed
+And Scroll up page to top...................................................passed
+Then Verify that page is scrolled up and Full-Fledged practice website for Automation Engineers text is visible on screen.failed
 ]]></system-out>
 </testcase>
 </testsuite>

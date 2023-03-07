@@ -185,13 +185,13 @@ public class T01_RegisterStepDefinitions {
     }
     @When("Click Delete Account button")
     public void click_delete_account_button() {
-      //  accountCreatedPage.buttonDeleteAccount.click();
+       accountCreatedPage.buttonDeleteAccount.click();
 
 
     }
     @Then("Verify that ACCOUNT DELETED! is visible and click Continue button")
     public void verify_that_account_deleted_is_visible_and_click_continue_button() {
-       // Assert.assertTrue(accountCreatedPage.textAccountDeleted.isDisplayed());
+        Assert.assertTrue(accountCreatedPage.textAccountDeleted.isDisplayed());
 
     }
 

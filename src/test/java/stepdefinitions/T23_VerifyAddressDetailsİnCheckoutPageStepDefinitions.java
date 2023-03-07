@@ -18,6 +18,7 @@ public class T23_VerifyAddressDetailsİnCheckoutPageStepDefinitions {
     @And("Verify that the billing address is same address filled at the time registration of account")
     public void verifyThatTheBillingAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount() {
         Assert.assertTrue(checkoutPage.textAdressİnvoice.isDisplayed());
+        Driver.wait(2);
     }
 
     @Then("Verify ACCOUNT DELETED! and click is Continue button")

@@ -26,7 +26,6 @@ public class T20_SearchProductsVerifyCartAfterLoginStepDefinitions {
         allProductsPage.buttonCartProduct.click();
         Driver.wait(2);
         //loginPage.buttonLogout.click();
-
         Assert.assertTrue(allProductsPage.textPremiumPoloTShirtsProduct.isDisplayed());
 
     }
@@ -35,14 +34,6 @@ public class T20_SearchProductsVerifyCartAfterLoginStepDefinitions {
     public void againGoToCartPage() {
         loginPage.buttonCart.click();
         Driver.wait(2);
-        //loginPage.buttonSignupLogin.click();
-       // Driver.wait(2);
-        //loginPage.boxLoginEmail.sendKeys("ferhat01@gmail.com");
-       // loginPage.boxLoginEmail.sendKeys("123456");
-       // loginPage.buttonLogin.click();
-       // Driver.getDriver().navigate().refresh();
-       // Driver.wait(2);
-       // loginPage.buttonCart.click();
 
     }
 
