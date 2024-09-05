@@ -16,7 +16,7 @@ public class PaymentPage {
     @FindBy(xpath = "//*[@name='expiry_month']") public WebElement boxExpirationMonth;
     @FindBy(xpath = "//*[@name='expiry_year']") public WebElement boxExpirationYear;
     @FindBy(xpath = "//*[@id='submit']") public WebElement buttonPayAndConfirmOrder;
-    @FindBy(xpath = "// //div[normalize-space(text()) = 'Your order has been placed successfully!']") public WebElement textSuccessMessage;
+    @FindBy(xpath = "//div[normalize-space(text()) = 'Your order has been placed successfully!']") public WebElement textSuccessMessage;
     //@FindBy(xpath = "(//div[@class='alert-success alert'])[1]") public WebElement textSuccessMessage;
     //@FindBy(xpath = "document.querySelector(\"#success_message > div\")") public WebElement textSuccessMessage;
 
