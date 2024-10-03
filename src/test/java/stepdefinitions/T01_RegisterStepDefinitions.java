@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 import pages.AccountCreatedPage;
 import pages.LoginPage;
 import pages.SignupPage;
@@ -36,7 +37,7 @@ public class T01_RegisterStepDefinitions {
     @When("Verify New User Signup! is visible")
     public void verify_new_user_signup_is_visible() {
         Assert.assertTrue(loginPage.textNewUserSignup.isDisplayed());
-        Driver.wait(3);
+        //Driver.wait(3);
 
     }
     @When("Enter name {string}")
@@ -83,7 +84,8 @@ public class T01_RegisterStepDefinitions {
     @When("Enter day of birth {string}")
     public void enter_day_of_birth(String string) {
 
-        Driver.selectByVisibleText(signupPage.signupDay,string);
+        //Driver.selectByVisibleText(signupPage.signupDay,string);
+        new Select(signupPage.signupDay).selectByVisibleText(string);
 
 
     }
