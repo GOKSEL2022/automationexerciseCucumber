@@ -229,4 +229,34 @@ public class Driver {
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
     }
+    public static void selectByVisibleText(WebElement element, String text) {
+        Select objSelect = new Select(element);
+        objSelect.selectByVisibleText(text);
+    }
+    public static void wait(int secs) {
+
+        try {
+            Thread.sleep(1000 * secs);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        } catch (StaleElementReferenceException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void waitAndClick(WebElement element, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.click();
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
+    }
 }
