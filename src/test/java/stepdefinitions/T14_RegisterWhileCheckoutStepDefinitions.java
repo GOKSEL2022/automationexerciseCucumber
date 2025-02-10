@@ -1,123 +1,92 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import org.junit.Assert;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.*;
 import utilities.Driver;
-import utilities.ReusableMethods;
-
+import static org.junit.Assert.assertTrue;
+import static utilities.Driver.clickWithJS;
+import static utilities.Driver.scrollBottomJS;
+import static utilities.ReusableMethods.clickWithTimeOut;
+import static utilities.ReusableMethods.hover;
 public class T14_RegisterWhileCheckoutStepDefinitions {
-
-    LoginPage loginPage = new LoginPage();
-    CheckoutPage checkoutPage = new CheckoutPage();
-    AllProductsPage allProductsPage = new AllProductsPage();
-    Actions actions = new Actions(Driver.getDriver());
-    PaymentPage paymentPage = new PaymentPage();
-    OrderPlacedPage orderPlacedPage = new OrderPlacedPage();
-    AccountCreatedPage accountCreatedPage=new AccountCreatedPage();
-
+    AllPages allPages=new AllPages();
+    Actions actions=new Actions(Driver.getDriver());
     @And("Add products to cart")
-    public void addProductsToCart() {
-
+    public void addProductsToCart() throws InterruptedException {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(1);
-        Driver.hover(allProductsPage.firstProductPicture);
-        Driver.wait(5);
-        allProductsPage.buttonAddToCartFirst.click();
-        Driver.wait(2);
+        wait(1);
+        hover(allPages.allProductsPage().firstProductPicture);
+        wait(5);
+        allPages.allProductsPage().buttonAddToCartFirst.click();
+        wait(2);
     }
-
     @And("Verify that cart page is displayed")
     public void verifyThatCartPageIsDisplayed() {
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("view_cart"));
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("view_cart"));
     }
-
     @And("Click Proceed To Checkout")
     public void clickProceedToCheckout() {
-        checkoutPage.buttonProceedToCheckout.click();
+        allPages.checkoutPage().buttonProceedToCheckout.click();
     }
-
     @And("Click Register_Login button")
     public void clickRegister_LoginButton() {
-        checkoutPage.buttonRegisterLogin.click();
+        allPages.checkoutPage().buttonRegisterLogin.click();
     }
-
     @And("Click Proceed To Checkout button")
     public void clickProceedToCheckoutButton() {
-        checkoutPage.buttonProceedToCheckout.click();
+        allPages.checkoutPage().buttonProceedToCheckout.click();
     }
-
     @And("Verify Address Details and Review Your Order")
     public void verifyAddressDetailsAndReviewYourOrder() {
-        Assert.assertTrue(checkoutPage.textAddressDetails.isDisplayed());
+        assertTrue(allPages.checkoutPage().textAddressDetails.isDisplayed());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.clickWithTimeOut(checkoutPage.textReviewYourOrder, 10);
-        Assert.assertTrue(checkoutPage.textReviewYourOrder.isDisplayed());
+        clickWithTimeOut(allPages.checkoutPage().textReviewYourOrder, 10);
+        assertTrue(allPages.checkoutPage().textReviewYourOrder.isDisplayed());
     }
-
     @And("Enter description in comment text area and click Place Order")
     public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
-        Driver.scrollBottomJS();
-        checkoutPage.boxMessage.sendKeys("thanks");
-        checkoutPage.buttonPlaceOrder.click();
+        scrollBottomJS();
+        allPages.checkoutPage().boxMessage.sendKeys("thanks");
+        allPages.checkoutPage().buttonPlaceOrder.click();
     }
-
     @And("Enter payment Name on Card {string}")
     public void enterPaymentNameOnCard(String string) {
-        paymentPage.boxNameOnCard.sendKeys(string);
-
+        allPages.paymentPage().boxNameOnCard.sendKeys(string);
     }
-
     @And("Enter payment Card Number {string}")
     public void enterPaymentCardNumber(String string) {
-        paymentPage.boxCardNumber.sendKeys(string);
+        allPages.paymentPage().boxCardNumber.sendKeys(string);
     }
-
     @And("Enter payment CVC {string}")
     public void enterPaymentCVC(String string) {
-        paymentPage.boxCVC.sendKeys(string);
+        allPages.paymentPage().boxCVC.sendKeys(string);
     }
-
     @And("Enter payment Expiration {string}")
     public void enterPaymentExpiration(String string) {
-        paymentPage.boxExpirationMonth.sendKeys(string);
+        allPages.paymentPage().boxExpirationMonth.sendKeys(string);
     }
-
     @And("Enter date {string}")
     public void enterDate(String string) {
-        paymentPage.boxExpirationYear.sendKeys(string);
+        allPages.paymentPage().boxExpirationYear.sendKeys(string);
     }
-
     @And("Click Pay and Confirm Order button")
-    public void clickPayAndConfirmOrderButton() {
-        Driver.wait(5);
-        paymentPage.buttonPayAndConfirmOrder.click();
-        Driver.wait(5);
+    public void clickPayAndConfirmOrderButton() throws InterruptedException {
+        wait(5);
+        allPages.paymentPage().buttonPayAndConfirmOrder.click();
+        wait(5);
     }
     @And("Verify success message Your order has been placed successfully!")
     public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
-        //Driver.waitAndGetText(paymentPage.textSuccessMessage, 5);
-        //Assert.assertTrue(paymentPage.textSuccessMessage.isDisplayed());
-
+        //Driver.waitAndGetText(allPages.paymentPage().textSuccessMessage, 5);
+        assertTrue(allPages.paymentPage().textSuccessMessage.isDisplayed());
     }
     @Then("Verify ACCOUNT DELETED! and click Continue button")
-    public void verifyACCOUNTDELETEDAndClickContinueButton() {
-        Driver.clickWithJS(orderPlacedPage.buttonContinue);
-        Driver.wait(2);
-       // orderPlacedPage.buttonContinue.click();
-        Assert.assertTrue(loginPage.buttonSignupLogin.isDisplayed());
-
+    public void verifyACCOUNTDELETEDAndClickContinueButton() throws InterruptedException {
+        clickWithJS(allPages.orderPlacedPage().buttonContinue);
+        wait(2);
+       // allPages.orderPlacedPage().buttonContinue.click();
+        assertTrue(allPages.loginPage().buttonSignupLogin.isDisplayed());
     }
-
-    /*
-    normalize-space() => Bazı elementlerde, içinde metin değeri fazladan boşluk karakteri içerebiliyor.
-     Bu durumda, normal text() fonksiyonu ilgili metni bulamıyor(boşluk vb karakterlerdne dolayı).
-      contains() fonksiyonu kullanılabilir ama bu sefer de hem performans hem okunabilirlik sorunu var.
-      İşte bu durumda, normalize-space() fonksiyonu yardıma koşuyor. Çoğu yazılım dilindeki trim() fonksiyonunun benzeridir.
-//a[normalize-space()=’ Click ‘] => metin değeri boşluklardan arındırılmış bir şekilde “Click” olan <a> elementlerini bulur
-     */
 }
 

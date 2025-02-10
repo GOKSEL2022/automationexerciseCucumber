@@ -1,31 +1,22 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import pages.CheckoutPage;
-import pages.LoginPage;
-import utilities.Driver;
-
+import io.cucumber.java.en.*;
+import pages.AllPages;
+import static org.junit.Assert.assertTrue;
 public class T23_VerifyAddressDetailsİnCheckoutPageStepDefinitions {
-    CheckoutPage checkoutPage=new CheckoutPage();
-    LoginPage loginPage=new LoginPage();
+    AllPages allPages=new AllPages();
     @And("Verify that the delivery address is same address filled at the time registration of account")
     public void verifyThatTheDeliveryAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount() {
-        Assert.assertTrue(checkoutPage.textAdressDelivery.isDisplayed());
+        assertTrue(allPages.checkoutPage().textAdressDelivery.isDisplayed());
     }
-
     @And("Verify that the billing address is same address filled at the time registration of account")
-    public void verifyThatTheBillingAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount() {
-        Assert.assertTrue(checkoutPage.textAdressİnvoice.isDisplayed());
-        Driver.wait(2);
+    public void verifyThatTheBillingAddressIsSameAddressFilledAtTheTimeRegistrationOfAccount() throws InterruptedException {
+        assertTrue(allPages.checkoutPage().textAdressİnvoice.isDisplayed());
+        wait(2);
     }
-
     @Then("Verify ACCOUNT DELETED! and click is Continue button")
-    public void verifyACCOUNTDELETEDAndClickIsContinueButton() {
-        checkoutPage.buttonDeleteAccountCheckout.click();
-        Driver.wait(2);
-        Assert.assertTrue(loginPage.buttonSignupLogin.isDisplayed());
-
+    public void verifyACCOUNTDELETEDAndClickIsContinueButton() throws InterruptedException {
+        allPages.checkoutPage().buttonDeleteAccountCheckout.click();
+        wait(2);
+        assertTrue(allPages.loginPage().buttonSignupLogin.isDisplayed());
     }
 }

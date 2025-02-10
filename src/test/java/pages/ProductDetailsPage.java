@@ -9,7 +9,9 @@ public class ProductDetailsPage {
     public ProductDetailsPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//*[@id='quantity']") public WebElement boxQuantity;
-    @FindBy(xpath = "//button[@class='btn btn-default cart']") public WebElement buttonAddToCart;
+    @FindBy(xpath = "//*[@id='quantity']")
+    public WebElement boxQuantity;
+    @FindBy(xpath = "//button[@class='btn btn-default cart']")
+    public WebElement buttonAddToCart;
 
 }
