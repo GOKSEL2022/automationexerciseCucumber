@@ -11,7 +11,7 @@ public class T10_VerifySubscriptionHomeStepDefinitions {
     LoginPage loginPage=new LoginPage();
     @And("Scroll down to footer")
     public void scrollDownToFooter() {
-        Driver.scrollEndJS();
+        Driver.scrollBottomJS();
 
 
     }

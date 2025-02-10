@@ -10,7 +10,7 @@ public class T25_ScrollDownfunctionalityStepDefinitions {
     LoginPage loginPage = new LoginPage();
     @And("Scroll down page to bottom")
     public void scrollDownPageToBottom() {
-        Driver.scrollEndJS();
+        Driver.scrollBottomJS();
         Driver.wait(2);
     }
 

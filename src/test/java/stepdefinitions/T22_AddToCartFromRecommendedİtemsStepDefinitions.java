@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 import pages.CheckoutPage;
 import pages.LoginPage;
 import utilities.Driver;
@@ -13,7 +14,7 @@ public class T22_AddToCartFromRecommendedİtemsStepDefinitions {
 
     @And("Scroll to bottom of page")
     public void scrollToBottomOfPage() {
-        Driver.scrollIntoViewJS(loginPage.textRecommendedİtemsLogin);
+        Driver.hover(loginPage.textRecommendedİtemsLogin);
 
     }
 

@@ -16,7 +16,7 @@ public class T13_ProductQuantityStepDefinition {
 
     @And("Click View Product for any product on home page")
     public void clickViewProductForAnyProductOnHomePage() {
-        Driver.hoverOverOnElementActions(loginPage.buttonViewProduct);
+        Driver.hover(loginPage.buttonViewProduct);
         loginPage.buttonViewProduct.click();
         Driver.getDriver().navigate().refresh();
         loginPage.buttonViewProduct.click();

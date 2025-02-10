@@ -24,7 +24,7 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
-        Driver.hoverOverOnElementActions(allProductsPage.firstProductPicture);
+        Driver.hover(allProductsPage.firstProductPicture);
         Driver.wait(5);
         allProductsPage.buttonAddToCartFirst.click();
         Driver.wait(2);
@@ -54,13 +54,13 @@ public class T14_RegisterWhileCheckoutStepDefinitions {
     public void verifyAddressDetailsAndReviewYourOrder() {
         Assert.assertTrue(checkoutPage.textAddressDetails.isDisplayed());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.waitForVisibility(checkoutPage.textReviewYourOrder, 10);
+        Driver.clickWithTimeOut(checkoutPage.textReviewYourOrder, 10);
         Assert.assertTrue(checkoutPage.textReviewYourOrder.isDisplayed());
     }
 
     @And("Enter description in comment text area and click Place Order")
     public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
-        Driver.scrollEndJS();
+        Driver.scrollBottomJS();
         checkoutPage.boxMessage.sendKeys("thanks");
         checkoutPage.buttonPlaceOrder.click();
     }
