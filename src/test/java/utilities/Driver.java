@@ -30,6 +30,8 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 
+import static utilities.ReusableMethods.waitFor;
+
 public class Driver {
 
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
@@ -259,4 +261,36 @@ public class Driver {
             }
         }
     }
+    public static void clickWithJS(WebElement element) {
+
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+    }
+    public static void scrollBottomJS() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight");
+    }
+    public static void hover(WebElement element) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(element).perform();
+    }
+    public static void clickWithTimeOut(WebElement element, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.click();
+                return;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+        }
+    }
+    public static void clickByJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", element);
+    }
+    public static void scrollTopJS() {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight");
+    }
+
 }

@@ -16,7 +16,7 @@ public class T12_AddProductsStepDefinition {
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
-        Driver.hoverOverOnElementActions(allProductsPage.firstProductPicture);
+        Driver.hover(allProductsPage.firstProductPicture);
         Driver.wait(2);
         allProductsPage.buttonAddToCartFirst.click();
         Driver.wait(2);
@@ -30,7 +30,7 @@ public class T12_AddProductsStepDefinition {
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Driver.wait(1);
-        Driver.hoverOverOnElementActions(allProductsPage.twoProductPicture);
+        Driver.hover(allProductsPage.twoProductPicture);
         Driver.wait(2);
         allProductsPage.buttonAddToCartTwo.click();
         Driver.wait(2);

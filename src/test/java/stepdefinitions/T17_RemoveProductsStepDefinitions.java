@@ -11,7 +11,7 @@ public class T17_RemoveProductsStepDefinitions {
 
     @And("Click X button corresponding to particular product")
     public void clickXButtonCorrespondingToParticularProduct() {
-        Driver.hoverOverOnElementActions(checkoutPage.buttonXDelete);
+        Driver.hover(checkoutPage.buttonXDelete);
         Driver.clickWithJS(checkoutPage.buttonXDelete);
     }
 
