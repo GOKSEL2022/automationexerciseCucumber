@@ -86,6 +86,12 @@ public class AllProductsPage {
     @FindBy(xpath = "//span[text()='Thank you for your review.']")
     public WebElement textThankYouForYourReviewProduct;
 
+    @FindBy(id = "susbscribe_email")
+    public WebElement susbscribeEmailTextboxSayfaAltiProduct;
+
+    @FindBy(xpath = "//div[@class='logo pull-left']")
+    public WebElement automationExcerciseTitleProduct;
+
 
 
 }
