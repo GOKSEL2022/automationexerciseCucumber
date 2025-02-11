@@ -1,23 +1,19 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import pages.CheckoutPage;
-import utilities.Driver;
-
+import io.cucumber.java.en.*;
+import pages.AllPages;
+import static org.junit.Assert.assertTrue;
+import static utilities.Driver.clickWithJS;
+import static utilities.ReusableMethods.hover;
 public class T17_RemoveProductsStepDefinitions {
-    CheckoutPage checkoutPage=new CheckoutPage();
-
+    AllPages allPages=new AllPages();
     @And("Click X button corresponding to particular product")
     public void clickXButtonCorrespondingToParticularProduct() {
-        Driver.hover(checkoutPage.buttonXDelete);
-        Driver.clickWithJS(checkoutPage.buttonXDelete);
+        hover(allPages.checkoutPage().buttonXDelete);
+        clickWithJS(allPages.checkoutPage().buttonXDelete);
     }
-
     @Then("Verify that product is removed from the cart")
     public void verifyThatProductIsRemovedFromTheCart() {
-        Assert.assertTrue(checkoutPage.textCartisEmpty.isDisplayed());
+        assertTrue(allPages.checkoutPage().textCartisEmpty.isDisplayed());
        // Assert.assertTrue(Driver.getDriver().getPageSource().contains("Cart is empty!"));
     }
 }

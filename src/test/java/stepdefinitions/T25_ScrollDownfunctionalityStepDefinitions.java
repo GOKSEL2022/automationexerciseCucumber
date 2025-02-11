@@ -1,30 +1,24 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import org.junit.Assert;
-import pages.LoginPage;
-import utilities.Driver;
-
+import io.cucumber.java.en.*;
+import pages.AllPages;
+import static org.junit.Assert.assertTrue;
+import static utilities.Driver.clickByJS;
+import static utilities.Driver.scrollBottomJS;
 public class T25_ScrollDownfunctionalityStepDefinitions {
-
-    LoginPage loginPage = new LoginPage();
+    AllPages allPages=new AllPages();
     @And("Scroll down page to bottom")
-    public void scrollDownPageToBottom() {
-        Driver.scrollBottomJS();
-        Driver.wait(2);
+    public void scrollDownPageToBottom() throws InterruptedException {
+        scrollBottomJS();
+        wait(2);
     }
-
     @And("Click on arrow at bottom right side to move upward")
-    public void clickOnArrowAtBottomRightSideToMoveUpward() {
-        Driver.wait(2);
-        Driver.clickByJS(loginPage.buttonScrollUp);
+    public void clickOnArrowAtBottomRightSideToMoveUpward() throws InterruptedException {
+        wait(2);
+        clickByJS(allPages.loginPage().buttonScrollUp);
     }
-
     @And("Verify that page is scrolled up and Full-Fledged practice website for Automation Engineers text is visible on screen")
     public void verifyThatPageIsScrolledUpAndFullFledgedPracticeWebsiteForAutomationEngineersTextIsVisibleOnScreen() {
-        Assert.assertTrue(loginPage.textAutomationEngineers2.isDisplayed());
-
-
+        assertTrue(allPages.loginPage().textAutomationEngineers2.isDisplayed());
     }
 }
 

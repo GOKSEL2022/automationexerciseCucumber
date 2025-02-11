@@ -9,7 +9,9 @@ public class OrderPlacedPage {
     public OrderPlacedPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//a[.='Continue']") public WebElement buttonContinue;
+    @FindBy(xpath = "//a[.='Continue']")
+    public WebElement buttonContinue;
 
-    @FindBy(xpath = "//a[@href='/download_invoice/500']") public WebElement buttonDownloadInvoice;
+    @FindBy(xpath = "//a[@href='/download_invoice/500']")
+    public WebElement buttonDownloadInvoice;
 }

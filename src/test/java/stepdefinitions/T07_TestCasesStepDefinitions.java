@@ -1,26 +1,17 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
-import pages.LoginPage;
+import io.cucumber.java.en.*;
+import pages.AllPages;
 import utilities.Driver;
-
+import static org.junit.Assert.assertTrue;
 public class T07_TestCasesStepDefinitions {
-
-    LoginPage loginPage=new LoginPage();
-
-
+    AllPages allPages=new AllPages();
     @When("Click on Test Cases button")
     public void clickOnTestCasesButton() {
-        loginPage.buttonLoginTestCase.click();
+        allPages.loginPage().buttonLoginTestCase.click();
         Driver.getDriver().navigate().refresh();
-
     }
-
     @Then("Verify user is navigated to test cases page successfully")
     public void verifyUserIsNavigatedToTestCasesPageSuccessfully() {
-        Assert.assertTrue(loginPage.textLoginTestCase.isDisplayed());
-
+        assertTrue(allPages.loginPage().textLoginTestCase.isDisplayed());
     }
 }

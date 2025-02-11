@@ -10,10 +10,15 @@ public class AccountCreatedPage {
      public AccountCreatedPage(){
           PageFactory.initElements(Driver.getDriver(),this);
      }
-     @FindBy(xpath = "(//*[.='Account Created!'])[2]") public WebElement textCreateAccount;
-     @FindBy(xpath = "//div[@class='pull-right']") public WebElement buttonAccountContinue;
+     @FindBy(xpath = "(//*[.='Account Created!'])[2]")
+     public WebElement textCreateAccount;
+     @FindBy(xpath = "//div[@class='pull-right']")
+     public WebElement buttonAccountContinue;
 
-     @FindBy(xpath = "//*[.='ferhat']") public WebElement textLoggedUsername;
-     @FindBy(xpath = "(//*[.=' Delete Account'])[2]") public WebElement buttonDeleteAccount;
-     @FindBy(xpath = "(//*[.='Account Deleted!'])[2]") public WebElement textAccountDeleted;
+     @FindBy(xpath = "//*[.='ferhat']")
+     public WebElement textLoggedUsername;
+     @FindBy(xpath = "(//*[.=' Delete Account'])[2]")
+     public WebElement buttonDeleteAccount;
+     @FindBy(xpath = "(//*[.='Account Deleted!'])[2]")
+     public WebElement textAccountDeleted;
 }

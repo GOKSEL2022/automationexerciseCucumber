@@ -1,35 +1,25 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
-import pages.LoginPage;
-import utilities.Driver;
-
+import io.cucumber.java.en.*;
+import pages.AllPages;
+import static org.junit.Assert.assertTrue;
+import static utilities.Driver.scrollBottomJS;
 public class T10_VerifySubscriptionHomeStepDefinitions {
-    LoginPage loginPage=new LoginPage();
+    AllPages allPages=new AllPages();
     @And("Scroll down to footer")
     public void scrollDownToFooter() {
-        Driver.scrollBottomJS();
-
-
+        scrollBottomJS();
     }
-
     @And("Verify text SUBSCRIPTION")
     public void verifyTextSUBSCRIPTION() {
-        Assert.assertTrue(loginPage.textSubscription.isDisplayed());
+        assertTrue(allPages.loginPage().textSubscription.isDisplayed());
     }
-
     @When("Enter email address {string}  in input and click arrow button")
     public void enterEmailAddressInInputAndClickArrowButton(String string) {
-        loginPage.boxSubscriptionEmail.sendKeys(string);
-        loginPage.buttonSubscriptionEmail.click();
+        allPages.loginPage().boxSubscriptionEmail.sendKeys(string);
+        allPages.loginPage().buttonSubscriptionEmail.click();
     }
-
     @Then("Verify success message You have been successfully subscribed! is visible")
     public void verifySuccessMessageYouHaveBeenSuccessfullySubscribedIsVisible() {
-        Assert.assertTrue(loginPage.textAlertSuccesSubscription.isDisplayed());
-
+        assertTrue(allPages.loginPage().textAlertSuccesSubscription.isDisplayed());
     }
 }

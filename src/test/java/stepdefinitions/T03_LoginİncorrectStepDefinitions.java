@@ -1,28 +1,19 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
-import pages.LoginPage;
-
+import io.cucumber.java.en.*;
+import pages.AllPages;
+import static org.junit.Assert.assertTrue;
 public class T03_LoginİncorrectStepDefinitions {
-    LoginPage loginPage=new LoginPage();
-
+    AllPages allPages=new AllPages();
     @When("Enter incorrect email address {string}")
     public void enter_incorrect_email_address(String string) {
-        loginPage.boxLoginEmail.sendKeys(string);
-
-
+        allPages.loginPage().boxLoginEmail.sendKeys(string);
     }
     @When("Enter incorrect password {string}")
     public void enter_incorrect_password(String string) {
-        loginPage.boxLoginPassword.sendKeys(string);
-
+        allPages.loginPage().boxLoginPassword.sendKeys(string);
     }
     @Then("Verify error Your email or password is incorrect! is visible")
     public void verify_error_your_email_or_password_is_incorrect_is_visible() {
-        Assert.assertTrue(loginPage.textIncorrectMesaj.isDisplayed());
-
+        assertTrue(allPages.loginPage().textIncorrectMesaj.isDisplayed());
     }
-
 }

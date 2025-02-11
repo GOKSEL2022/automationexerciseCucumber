@@ -1,57 +1,44 @@
 package stepdefinitions;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import pages.AllProductsPage;
-import pages.LoginPage;
+import pages.AllPages;
 import utilities.Driver;
-
+import static org.junit.Assert.assertTrue;
 public class T18_ViewCategoryProductsStepDefinitions {
-    LoginPage loginPage=new LoginPage();
-    AllProductsPage allProductsPage=new AllProductsPage();
+    AllPages allPages=new AllPages();
     Actions actions=new Actions(Driver.getDriver());
-
     @And("Verify that categories are visible on left side bar")
-    public void verifyThatCategoriesAreVisibleOnLeftSideBar() {
+    public void verifyThatCategoriesAreVisibleOnLeftSideBar() throws InterruptedException {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(5);
+        wait(5);
         Driver.getDriver().navigate().refresh();
-        loginPage.textLoginCategory.isDisplayed();
-
+        allPages.loginPage().textLoginCategory.isDisplayed();
     }
-
     @And("Click on Women category")
     public void clickOnWomenCategory() {
-        loginPage.buttonLoginWomen.click();
+        allPages.loginPage().buttonLoginWomen.click();
         Driver.wait(2);
     }
-
     @And("Click on any category link under Women category, for example: Dress")
     public void clickOnAnyCategoryLinkUnderWomenCategoryForExampleDress() {
-        loginPage.buttonLoginWomenDress.click();
+        allPages.loginPage().buttonLoginWomenDress.click();
     }
-
     @And("Verify that category page is displayed and confirm text WOMEN - TOPS PRODUCTS")
-    public void verifyThatCategoryPageIsDisplayedAndConfirmTextWOMENTOPSPRODUCTS() {
+    public void verifyThatCategoryPageIsDisplayedAndConfirmTextWOMENTOPSPRODUCTS() throws InterruptedException {
         Driver.getDriver().navigate().refresh();
-        loginPage.buttonLoginWomen.click();
-        Driver.wait(2);
-        allProductsPage.buttonWomenTopsProduct.click();
-        Assert.assertTrue(allProductsPage.textWomenTopProducts.isDisplayed());
-
+        allPages.loginPage().buttonLoginWomen.click();
+        wait(2);
+        allPages.allProductsPage().buttonWomenTopsProduct.click();
+        assertTrue( allPages.allProductsPage().textWomenTopProducts.isDisplayed());
     }
-
     @And("On left side bar, click on any sub-category link of Men category")
     public void onLeftSideBarClickOnAnySubCategoryLinkOfMenCategory() {
-        allProductsPage.buttonMenProduct.click();
-        allProductsPage.buttonMenTshırtsProduct.click();
+        allPages.allProductsPage().buttonMenProduct.click();
+        allPages.allProductsPage().buttonMenTshırtsProduct.click();
     }
-
     @When("Verify that user is navigated to that category page")
     public void verifyThatUserIsNavigatedToThatCategoryPage() {
-        Assert.assertTrue(allProductsPage.textMenTshirtsProducts.isDisplayed());
+        assertTrue( allPages.allProductsPage().textMenTshirtsProducts.isDisplayed());
     }
 }
