@@ -1,9 +1,11 @@
 package stepdefinitions;
 import io.cucumber.java.en.*;
-import static utilities.Driver.scrollTopJS;
+import pages.AllPages;
+import static utilities.Driver.scrollIntoViewJS;
 public class T26_ScrollUpStepDefinition {
+    AllPages allPages=new AllPages();
     @And("Scroll up page to top")
     public void scrollUpPageToTop() {
-        scrollTopJS();
+    scrollIntoViewJS(allPages.allProductsPage().automationExcerciseTitleProduct);
     }
 }
